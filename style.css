@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -37,9 +38,37 @@ h1 {
 }
 
 .t-dark {
-  background-color: black;
+  background-color: rgb(25, 26, 29);
   color: white;
   -webkit-font-smoothing: antialiased;
   transition-duration: 0.7s;
   transition-property: *;
+}
+
+/* main settings */
+main {
+  padding: 0 20px;
+}
+
+.exercises-title-header {
+  margin: 25px 0;
+}
+
+.exercises {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.single-exercise {
+  width: 32%;
+  border-radius: 6px;
+  margin: 0 2% 25px 0;
+  position: relative;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.28);
+  background-color: white;
+  text-align: center;
+}
+
+.single-exercise:nth-child(3n) {
+  margin-right: 0;
 }
