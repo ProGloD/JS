@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -75px;
+  margin-top: -37.5px;
+  width: 150px;
+  height: 75px;
+  background-color: black;
+  color: white;
+  font-size: 30px;
+  border-radius: 75px;
+}

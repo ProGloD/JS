@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Button on the main screen */
+.main_button {
+  width: 150px;
+  height: 75px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  font-size: 25px;
+  border-radius: 75px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -75px;
+  margin-top: -37.5px;
+}
+
+.main_button:active {
+  background-color: rgb(225, 0, 0);
+}
+
+/* Popup */
+.pop_up {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  height: 100px;
+  margin-left: -175px;
+  margin-top: -50px;
+  background: white;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.cancel {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 10px 15px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+/* Hide popup window */
+.hide {
+  display: none;
+}

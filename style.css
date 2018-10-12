@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+/* settings for header */
+header {
+  text-align: center;
+}
+
+h1 {
+  display: inline-block;
+}
+
+.change-theme {
+  display: inline-block;
+  float: right;
+  padding: 0;
+  outline: none;
+  border: none;
+  background-color: white;
+}
+
+.material-icons {
+  font-size: 32px;
+}
+
+/* theme settings */
+.t-light {
+  transition-duration: 0.7s;
+  transition-property: *;
+}
+
+.t-dark {
+  background-color: black;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  transition-duration: 0.7s;
+  transition-property: *;
+}
