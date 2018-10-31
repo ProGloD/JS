@@ -6,3 +6,10 @@ function searchForMeaning(arr) {
   }
   return "Not found";
 }
+
+/*
+// One row solution
+function searchForMeaning(arr){
+  return arr.includes(42) ? "Meaning found at " + arr.indexOf(42) : "Not found";
+}
+*/
