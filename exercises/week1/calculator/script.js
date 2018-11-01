@@ -1,15 +1,41 @@
-let button = document.querySelector("button").addEventListener("click", calc);
-let input = document.querySelector("input");
-let span = document.querySelector("span");
+document.querySelector("#buttonEq").addEventListener("click", doCalc);
+document.querySelector("#buttonClear").addEventListener("click", clear);
+let inputBtns = document.querySelectorAll(".input");
+let todoBtns = document.querySelectorAll(".todo");
+let output = document.querySelector("h1");
+let arr = [];
+let removed = true;
 
-function calc() {
-  let toCalc = input.value.trim();
-  let arr = toCalc.split(" ");
-
-  span.textContent = doCalc(arr);
+for (let btn of inputBtns) {
+  btn.addEventListener("click", input);
 }
 
-function doCalc(arr) {
+for (let btn of todoBtns) {
+  btn.addEventListener("click", todo);
+}
+
+function input(e) {
+  if (!removed) {
+    output.textContent = "";
+    removed = true;
+  }
+  output.textContent += e.target.textContent;
+}
+
+function todo(e) {
+  arr.push(output.textContent);
+  output.textContent = e.target.textContent;
+  arr.push(e.target.textContent);
+  removed = false;
+}
+
+function clear(e) {
+  arr = [];
+  output.textContent = "";
+}
+
+function doCalc(e) {
+  arr.push(output.textContent);
   let i;
   let firstNum;
   let secondNum;
@@ -46,5 +72,6 @@ function doCalc(arr) {
     }
   }
 
-  return arr[0];
+  output.textContent = arr[0].toFixed(2);
+  removed = false;
 }
