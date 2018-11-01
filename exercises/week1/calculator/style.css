@@ -23,7 +23,7 @@ body {
 
 #output {
   width: 100%;
-  height: 20%;
+  height: 25%;
   background-color: white;
   border: 1px solid #ccc;
   font-size: 36px;
@@ -34,9 +34,21 @@ body {
   border-radius: 5px;
 }
 
+#equ {
+  width: 100%;
+  height: 10%;
+  border-radius: 5px;
+  background-color: rgb(228, 228, 228);
+  text-align: right;
+  padding-top: 4%;
+  padding-right: 4%;
+  font-size: 20px;
+}
+
 .item {
   flex-grow: 1;
   width: calc(100% / 4);
+  height: calc(65% / 5);
   font-size: 24px;
   background-color: white;
   border: 1px solid #ccc;
@@ -49,4 +61,8 @@ body {
 
 .item:focus {
   outline: none;
+}
+
+#buttonClear {
+  width: 50%;
 }

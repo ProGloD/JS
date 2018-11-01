@@ -1,44 +1,66 @@
-document.querySelector("#buttonEq").addEventListener("click", doCalc);
+document.querySelector("#buttonEq").addEventListener("click", calc);
 document.querySelector("#buttonClear").addEventListener("click", clear);
 let inputBtns = document.querySelectorAll(".input");
 let todoBtns = document.querySelectorAll(".todo");
+let brs = document.querySelectorAll(".br");
 let output = document.querySelector("h1");
-let arr = [];
-let removed = true;
+let equ = document.querySelector("#equ");
+let problem = [];
 
-for (let btn of inputBtns) {
-  btn.addEventListener("click", input);
-}
+addClickListener(inputBtns, input);
+addClickListener(todoBtns, todo);
 
-for (let btn of todoBtns) {
-  btn.addEventListener("click", todo);
+function addClickListener(list, f) {
+  for (let btn of list) {
+    btn.addEventListener("click", f);
+  }
 }
 
 function input(e) {
-  if (!removed) {
+  if (Number.isNaN(parseFloat(output.textContent))) {
     output.textContent = "";
-    removed = true;
   }
+
   output.textContent += e.target.textContent;
+  equ.textContent += e.target.textContent;
 }
 
 function todo(e) {
-  arr.push(output.textContent);
+  if (!Number.isNaN(parseFloat(output.textContent))) {
+    problem.push(output.textContent);
+  }
   output.textContent = e.target.textContent;
-  arr.push(e.target.textContent);
-  removed = false;
+  equ.textContent += e.target.textContent;
+  problem.push(e.target.textContent);
 }
 
 function clear(e) {
-  arr = [];
+  problem = [];
   output.textContent = "";
+  equ.textContent = "";
 }
 
-function doCalc(e) {
-  arr.push(output.textContent);
+function calc(e) {
+  if (!Number.isNaN(parseFloat(output.textContent))) {
+    problem.push(output.textContent);
+  }
+
+  output.textContent = doCalc(problem);
+  removed = false;
+}
+
+function doCalc(arr) {
   let i;
   let firstNum;
   let secondNum;
+
+  while (arr.includes("(") && arr.includes(")")) {
+    let openBr = arr.indexOf("(");
+    let closeBr = arr.indexOf(")");
+    let inBrackets = arr.slice(openBr + 1, closeBr);
+    arr.splice(openBr + 1, inBrackets.length + 1);
+    arr[openBr] = doCalc(inBrackets);
+  }
 
   while (arr.includes("*")) {
     i = arr.indexOf("*");
@@ -72,6 +94,5 @@ function doCalc(e) {
     }
   }
 
-  output.textContent = arr[0].toFixed(2);
-  removed = false;
+  return parseFloat(arr[0].toFixed(2));
 }
