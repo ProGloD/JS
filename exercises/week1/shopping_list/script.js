@@ -1,6 +1,8 @@
 document.querySelector("#add").addEventListener("click", add);
-let input = document.querySelector("input");
+let product = document.querySelector("#product");
+let amount = document.querySelector("#amount");
 let output = document.querySelector("ul");
+let products = {};
 
 function add(e) {
   let newItem = document.createElement("li");
@@ -8,11 +10,19 @@ function add(e) {
   del.addEventListener("click", deleteItem);
   del.textContent = "Delete";
 
-  newItem.textContent = input.value;
-  newItem.appendChild(del);
+  if (product in products) {
+    products[product] += parseInt(amount.value);
+  } else {
+    products[product] = parseInt(amount.value);
 
-  output.appendChild(newItem);
-  input.value = "";
+    newItem.textContent = product.value;
+    newItem.appendChild(del);
+
+    output.appendChild(newItem);
+  }
+
+  product.value = "";
+  amount.value = "";
 }
 
 function deleteItem(e) {

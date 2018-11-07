@@ -6,7 +6,7 @@ function median(arr) {
   if (arr.length % 2)
     return arr[half];
   else
-    return (arr[half - 1] + arr[half]) / 2.0;
+    return (arr[half - 1] + arr[half]) / 2;
 
   // one row solution
   //return arr.length % 2 ? arr[half] : (arr[half - 1] + arr[half]) / 2.0;
