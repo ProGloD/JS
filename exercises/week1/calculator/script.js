@@ -2,7 +2,6 @@ document.querySelector("#buttonEq").addEventListener("click", calc);
 document.querySelector("#buttonClear").addEventListener("click", clear);
 let inputBtns = document.querySelectorAll(".input");
 let todoBtns = document.querySelectorAll(".todo");
-let brs = document.querySelectorAll(".br");
 let output = document.querySelector("h1");
 let equ = document.querySelector("#equ");
 let problem = [];
@@ -46,10 +45,10 @@ function calc(e) {
   }
 
   output.textContent = doCalc(problem);
-  removed = false;
 }
 
 function doCalc(arr) {
+  debugger;
   let i;
   let firstNum;
   let secondNum;
@@ -62,20 +61,27 @@ function doCalc(arr) {
     arr[openBr] = doCalc(inBrackets);
   }
 
-  while (arr.includes("*")) {
-    i = arr.indexOf("*");
-    firstNum = parseFloat(arr[i - 1]);
-    secondNum = parseFloat(arr[i + 1]);
-    arr[i - 1] = firstNum * secondNum;
-    arr.splice(i, 2);
-  }
+  while (arr.includes("*") || arr.includes("/")) {
+    if (arr.includes("*") && arr.includes("/")) {
+      let indexA = arr.indexOf("*");
+      let indexB = arr.indexOf("/");
+      i = indexA < indexB ? indexA : indexB;
+    } else {
+      i = arr.includes("*") ? arr.indexOf("*") : arr.indexOf("/");
+    }
 
-  while (arr.includes("/")) {
-    i = arr.indexOf("/");
-    firstNum = parseFloat(arr[i - 1]);
-    secondNum = parseFloat(arr[i + 1]);
-    arr[i - 1] = firstNum / secondNum;
-    arr.splice(i, 2);
+    if (arr[i] === "*") {
+      firstNum = parseFloat(arr[i - 1]);
+      secondNum = parseFloat(arr[i + 1]);
+      arr[i - 1] = firstNum * secondNum;
+      arr.splice(i, 2);
+    }
+    if (arr[i] === "/") {
+      firstNum = parseFloat(arr[i - 1]);
+      secondNum = parseFloat(arr[i + 1]);
+      arr[i - 1] = firstNum / secondNum;
+      arr.splice(i, 2);
+    }
   }
 
   while (arr.includes("+") || arr.includes("-")) {
