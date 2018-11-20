@@ -1,0 +1,44 @@
+.cell {
+  width: calc(100% / 5);
+  height: calc(100% / 5);
+  border: 1px solid black;
+  font-size: 84px;
+  line-height: 84px;
+  text-align: center;
+}
+
+#cell_1 {
+  border-top: none;
+  border-left: none;
+}
+
+#cell_2, #cell_3, #cell_4 {
+  border-top: none;
+}
+
+#cell_5 {
+  border-top: none;
+  border-right: none;
+}
+
+#cell_6, #cell_11, #cell_16 {
+  border-left: none;
+}
+
+#cell_10, #cell_15, #cell_20 {
+  border-right: none;
+}
+
+#cell_21 {
+  border-bottom: none;
+  border-left: none;
+}
+
+#cell_22, #cell_23, #cell_24 {
+  border-bottom: none;
+}
+
+#cell_25 {
+  border-bottom: none;
+  border-right: none;
+}
