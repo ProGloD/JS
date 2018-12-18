@@ -31,7 +31,7 @@ thead.appendChild(trHead);
 function request() {
   let oReq = new XMLHttpRequest();
   oReq.addEventListener("load", listener);
-  if (window.location.hash !== "") {
+  if (window.location.hash) {
     oReq.open("GET", "https://api.openbrewerydb.org/breweries/" + window.location.hash.slice(1));
   } else {
     oReq.open("GET", "https://api.openbrewerydb.org/breweries?page=" + page);
